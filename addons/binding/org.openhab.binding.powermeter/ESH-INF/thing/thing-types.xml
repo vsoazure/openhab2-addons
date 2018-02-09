@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="powermeter"
+						  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+						  xmlns:thing="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0"
+						  xsi:schemaLocation="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0 http://eclipse.org/smarthome/schemas/thing-description-1.0.0.xsd">
+
+	<thing-type id="powermeter">
+		<label>PowerMeter Binding Thing</label>
+		<description>Power Meter</description>
+		
+		<!-- which data is available? -->
+		<channels>
+			<!--  General -->
+			<channel id="frequency" typeId="frequency"/>
+			<channel id="temperature" typeId="temperature"/>
+			<channel id="op_time" typeId="op_time"/>
+			
+			
+			<!--  Voltage -->
+			<channel id="voltage_phase1" typeId="voltage_phase1"/>
+			<channel id="voltage_phase2" typeId="voltage_phase2"/>
+			<channel id="voltage_phase3" typeId="voltage_phase3"/>
+			
+			<channel id="voltage_phase3-2" TypeId="voltage_phase3-2"/>
+			<channel id="voltage_phase2-1" TypeId="voltage_phase2-1"/>
+			<channel id="voltage_phase1-3" TypeId="voltage_phase1-3"/>
+			
+			<channel id="avg_phase_phase_voltage" typeId="avg_phase_phase_voltage"/>
+			<channel id="avg_neutral_phase_voltage" typeId="avg_neutral_phase_voltage"/>
+			
+			
+			<!--  Current -->
+			<channel id="current_phase1" typeId="current_phase1"/>
+			<channel id="current_phase2" typeId="current_phase2"/>
+			<channel id="current_phase3" typeId="current_phase3"/>
+			<channel id="current_sum" typeId="current_sum"/>
+			
+			
+			<!--  angles -->
+			<channel id="phase_angle_currvolt_phase1" typeId="phase_angle_currvolt_phase1"/>
+			<channel id="phase_angle_currvolt_phase2" typeId="phase_angle_currvolt_phase2"/>
+			<channel id="phase_angle_currvolt_phase3" typeId="phase_angle_currvolt_phase3"/>
+			
+			<channel id="phase_angle_phase1-3" typeId="phase_angle_phase1-3"/>
+			<channel id="phase_angle_phase2-3" typeId="phase_angle_phase2-3"/>
+			
+			
+			<!--  Power -->
+			<channel id="activepower_phase1" typeId="activepower_phase1"/>
+			<channel id="activepower_phase2" typeId="activepower_phase2"/>
+			<channel id="activepower_phase3" typeId="activepower_phase3"/>
+			<channel id="activepower_sum" typeId="activepower_sum"/>
+			
+			<channel id="activefundpower_phase1" typeId="activefundpower_phase1"/>
+			<channel id="activefundpower_phase2" typeId="activefundpower_phase2"/>
+			<channel id="activefundpower_phase3" typeId="activefundpower_phase3"/>
+			<channel id="activefundpower_sum" typeId="activefundpower_sum"/>
+			
+			<channel id="activeharmpower_phase1" typeId="activeharmpower_phase1"/>
+			<channel id="activeharmpower_phase2" typeId="activeharmpower_phase2"/>
+			<channel id="activeharmpower_phase3" typeId="activeharmpower_phase3"/>
+			<channel id="activeharmpower_sum" typeId="activeharmpower_sum"/>
+			
+			<channel id="reactivepower_phase1" typeId="reactivepower_phase1"/>
+			<channel id="reactivepower_phase2" typeId="reactivepower_phase2"/>
+			<channel id="reactivepower_phase3" typeId="reactivepower_phase3"/>
+			<channel id="reactivepower_sum" typeId="reactivepower_sum"/>
+			
+			<channel id="apppower_phase1" typeId="apppower_phase1"/>
+			<channel id="apppower_phase2" typeId="apppower_phase2"/>
+			<channel id="apppower_phase3" typeId="apppower_phase3"/>
+			<channel id="apppower_sum" typeId="apppower_sum"/>
+			
+			
+			<!-- Forward Energy -->
+			<channel id="fwd_active_energy_phase1" typeId="fwd_active_energy_phase1"/>
+			<channel id="fwd_active_energy_phase2" typeId="fwd_active_energy_phase2"/>
+			<channel id="fwd_active_energy_phase3" typeId="fwd_active_energy_phase3"/>
+			<channel id="fwd_active_energy_sum" typeId="fwd_active_energy_sum"/>
+
+			<channel id="fwd_active_fund_energy_phase1" typeId="fwd_active_fund_energy_phase1"/>
+			<channel id="fwd_active_fund_energy_phase2" typeId="fwd_active_fund_energy_phase2"/>
+			<channel id="fwd_active_fund_energy_phase3" typeId="fwd_active_fund_energy_phase3"/>
+			<channel id="fwd_active_fund_energy_sum" typeId="fwd_active_fund_energy_sum"/>
+			
+			<channel id="fwd_active_harm_energy_phase1" typeId="fwd_active_harm_energy_phase1"/>
+			<channel id="fwd_active_harm_energy_phase2" typeId="fwd_active_harm_energy_phase2"/>
+			<channel id="fwd_active_harm_energy_phase3" typeId="fwd_active_harm_energy_phase3"/>
+			<channel id="fwd_active_harm_energy_sum" typeId="fwd_active_harm_energy_sum"/>
+			
+			<channel id="fwd_reactive_energy_phase1" typeId="fwd_reactive_energy_phase1"/>
+			<channel id="fwd_reactive_energy_phase2" typeId="fwd_reactive_energy_phase2"/>
+			<channel id="fwd_reactive_energy_phase3" typeId="fwd_reactive_energy_phase3"/>
+			<channel id="fwd_reactive_energy_sum" typeId="fwd_reactive_energy_sum"/>
+			
+			
+			<!-- Reverse Energy -->
+			<channel id="rev_active_energy_phase1" typeId="rev_active_energy_phase1"/>
+			<channel id="rev_active_energy_phase2" typeId="rev_active_energy_phase2"/>
+			<channel id="rev_active_energy_phase3" typeId="rev_active_energy_phase3"/>
+			<channel id="rev_active_energy_sum" typeId="rev_active_energy_sum"/>
+
+			<channel id="rev_active_fund_energy_phase1" typeId="rev_active_fund_energy_phase1"/>
+			<channel id="rev_active_fund_energy_phase2" typeId="rev_active_fund_energy_phase2"/>
+			<channel id="rev_active_fund_energy_phase3" typeId="rev_active_fund_energy_phase3"/>
+			<channel id="rev_active_fund_energy_sum" typeId="fwd_rev_active_fund_energy_sum"/>
+			
+			<channel id="rev_active_harm_energy_phase1" typeId="rev_active_harm_energy_phase1"/>
+			<channel id="rev_active_harm_energy_phase2" typeId="rev_active_harm_energy_phase2"/>
+			<channel id="rev_active_harm_energy_phase3" typeId="rev_active_harm_energy_phase3"/>
+			<channel id="rev_active_harm_energy_sum" typeId="rev_active_harm_energy_sum"/>
+			
+			<channel id="rev_reactive_energy_phase1" typeId="rev_reactive_energy_phase1"/>
+			<channel id="rev_reactive_energy_phase2" typeId="rev_reactive_energy_phase2"/>
+			<channel id="rev_reactive_energy_phase3" typeId="rev_reactive_energy_phase3"/>
+			<channel id="rev_reactive_energy_sum" typeId="rev_reactive_energy_sum"/>
+			
+			
+			<!-- Apparent Energy -->
+			<channel id="appenergy_consumption_phase1" TypeId="appenergy_consumption_phase1"/>
+			<channel id="appenergy_consumption_phase2" TypeId="appenergy_consumption_phase2"/>
+			<channel id="appenergy_consumption_phase3" TypeId="appenergy_consumption_phase3"/>
+			<channel id="appenergy_consumption_sum" TypeId="appenergy_consumption_sum"/>
+		</channels>
+		
+		<config-description>
+			<!-- which parameters are required to find the PowerMeter -->
+			<parameter name="macAddress" type="text" required="true">
+				<label>MAC Address</label>
+				<description>Enter the MAC address of the PowerMeter</description>
+			</parameter>
+			<parameter name="ipaddress" type="integer" required="true">
+				<label>IP-Address</label>
+				<description>Enter the IP address of the PowerMeter</description>
+				<context>network-address</context>
+			</parameter>
+			<parameter name="label" type="text" required="true">
+				<label>Name of Device</label>
+				<description>Enter the name you've given to the device</description>
+			</parameter>
+		</config-description>
+	</thing-type>
+
+	<!-- Definition of all channels -->
+	<!-- General -->
+	<channel-type id="frequency">
+		<item-type>Number</item-type>
+		<label>Main Frequency</label>
+		<description>Frequency in Hertz</description>
+		<state pattern="%.2f Hz" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="temperature">
+		<item-type>Number</item-type>
+		<label>Internal Temperature</label>
+		<description>Internal Temperature in Degree Celsius</description>
+		<state pattern="%.1f °C" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="op_time">
+		<item-type>Number</item-type>
+		<label>Time in Operation</label>
+		<description>Time in Operation in Seconds</description>
+		<state pattern="%f s" readOnly="true"></state>
+	</channel-type>
+	
+	
+	<!--  Voltage -->
+	<channel-type id="voltage_phase1">
+		<item-type>Number</item-type>
+		<label>Voltage Phase 1</label>
+		<description>Phase 1 Voltage in Volt</description>
+		<category>Voltage</category>
+		<state pattern="%.2f V" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="voltage_phase2">
+		<item-type>Number</item-type>
+		<label>Voltage Phase 2</label>
+		<description>Phase 2 Voltage in Volt</description>
+		<category>Voltage</category>
+		<state pattern="%.2f V" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="voltage_phase3">
+		<item-type>Number</item-type>
+		<label>Voltage Phase 3</label>
+		<description>Phase 3 Voltage in Volt</description>
+		<category>Voltage</category>
+		<state pattern="%.2f V" readOnly="true"></state>
+	</channel-type>
+	
+	<channel-type id="voltage_phase3-2">
+		<item-type>Number</item-type>
+		<label>Phase 3 – Phase 2 Voltage</label>
+		<description>Phase 3 - Phase 2 Voltage in Volt</description>
+		<category>Voltage</category>
+		<state pattern="%.2f V" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="voltage_phase2-1">
+		<item-type>Number</item-type>
+		<label>Phase 2 – Phase 1 Voltage</label>
+		<description>Phase 2 - Phase 1 Voltage in Volt</description>
+		<category>Voltage</category>
+		<state pattern="%.2f V" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="voltage_phase1-3">
+		<item-type>Number</item-type>
+		<label>Phase 1 – Phase 3 Voltage</label>
+		<description>Phase 1 - Phase 3 Voltage in Volt</description>
+		<category>Voltage</category>
+		<state pattern="%.2f V" readOnly="true"></state>
+	</channel-type>
+	
+	<channel-type id="avg_phase_phase_voltage">
+		<item-type>Number</item-type>
+		<label>Average Phase – Phase Voltage</label>
+		<description>Average Phase – Phase Voltage in Volt</description>
+		<category>Voltage</category>
+		<state pattern="%.2f V" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="avg_neutral_phase_voltage">
+		<item-type>Number</item-type>
+		<label>Average N – Phase Voltage</label>
+		<description>Average N – Phase Voltage in Volt</description>
+		<category>Voltage</category>
+		<state pattern="%.2f V" readOnly="true"></state>
+	</channel-type>
+	
+	
+	<!-- Current -->
+	<channel-type id="current_phase1">
+		<item-type>Number</item-type>
+		<label>Current Phase 1</label>
+		<description>Phase 1 Current in Ampere</description>
+		<category>Current</category>
+		<state pattern="%.2f A" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="current_phase2">
+		<item-type>Number</item-type>
+		<label>Current Phase 1</label>
+		<description>Phase 2 Current in Ampere</description>
+		<category>Current</category>
+		<state pattern="%.2f A" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="current_phase3">
+		<item-type>Number</item-type>
+		<label>Current Phase 1</label>
+		<description>Phase 3 Current in Ampere</description>
+		<category>Current</category>
+		<state pattern="%.2f A" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="current_sum">
+		<item-type>Number</item-type>
+		<label>Total Current</label>
+		<description>Total Current in Ampere</description>
+		<category>Current</category>
+		<state pattern="%.2f A" readOnly="true"></state>
+	</channel-type>
+		
+		
+	<!-- Angles -->	
+	<channel-type id="phase_angle_currvolt_phase1">
+		<item-type>Number</item-type>
+		<label>Angle Current to Voltage Phase 1</label>
+		<description>Angle Current to Voltage Phase 1 in Degree</description>
+		<category>Angle</category>
+		<state pattern="%.1f °" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="phase_angle_currvolt_phase2">
+		<item-type>Number</item-type>
+		<label>Angle Current to Voltage Phase 2</label>
+		<description>Angle Current to Voltage Phase 2 in Degree</description>
+		<category>Angle</category>
+		<state pattern="%.1f °" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="phase_angle_currvolt_phase3">
+		<item-type>Number</item-type>
+		<label>Angle Current to Voltage Phase 3</label>
+		<description>Angle Current to Voltage Phase 3 in Degree</description>
+		<category>Angle</category>
+		<state pattern="%.1f °" readOnly="true"></state>
+	</channel-type>
+	
+	<channel-type id="phase_angle_phase1-3">
+		<item-type>Number</item-type>
+		<label>Angle Voltage Phase 1 to Voltage Phase 3</label>
+		<description>Angle Voltage Phase 1 to Voltage Phase 3 in Degree</description>
+		<category>Angle</category>
+		<state pattern="%.1f °" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="phase_angle_phase2-3">
+		<item-type>Number</item-type>
+		<label>Angle Voltage Phase 2 to Voltage Phase 3</label>
+		<description>Angle Voltage Phase 2 to Voltage Phase 3 in Degree</description>
+		<category>Angle</category>
+		<state pattern="%.1f °" readOnly="true"></state>
+	</channel-type>
+	
+	
+	<!-- Power -->
+	<channel-type id="activepower_phase1">
+		<item-type>Number</item-type>
+		<label>Active power consumed at phase 1</label>
+		<description>Active power consumed at phase 1 in Watt</description>
+		<category>Power</category>
+		<state pattern="%.2f W" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="activepower_phase2">
+		<item-type>Number</item-type>
+		<label>Active power consumed at phase 2</label>
+		<description>Active power consumed at phase 2 in Watt</description>
+		<category>Power</category>
+		<state pattern="%.2f W" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="activepower_phase1">
+		<item-type>Number</item-type>
+		<label>Active power consumed at phase 3</label>
+		<description>Active power consumed at phase 3 in Watt</description>
+		<category>Power</category>
+		<state pattern="%.2f W" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="activepower_sum">
+		<item-type>Number</item-type>
+		<label>sum of Active power consumed</label>
+		<description>sum of Active power consumed in Watt</description>
+		<category>Power</category>
+		<state pattern="%.2f W" readOnly="true"></state>
+	</channel-type>
+	
+	<channel-type id="activefundpower_phase1">
+		<item-type>Number</item-type>
+		<label>Active Fundamental Power phase 1</label>
+		<description>Active Fundamental Power phase 1 in Watt</description>
+		<category>Power</category>
+		<state pattern="%.2f W" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="activefundpower_phase2">
+		<item-type>Number</item-type>
+		<label>Active Fundamental Power phase 2</label>
+		<description>Active Fundamental Power phase 2 in Watt</description>
+		<category>Power</category>
+		<state pattern="%.2f W" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="activefundpower_phase1">
+		<item-type>Number</item-type>
+		<label>Active Fundamental Power phase 3</label>
+		<description>Active Fundamental Power phase 3 in Watt</description>
+		<category>Power</category>
+		<state pattern="%.2f W" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="activefundpower_sum">
+		<item-type>Number</item-type>
+		<label>Active Fundamental Power all phase</label>
+		<description>Active Fundamental Power all phases in Watt</description>
+		<category>Power</category>
+		<state pattern="%.2f W" readOnly="true"></state>
+	</channel-type>
+	
+	<channel-type id="activeharmpower_phase1">
+		<item-type>Number</item-type>
+		<label>Active Harmonic Power phase 1</label>
+		<description>Active Harmonic Power phase 1 in Watt</description>
+		<category>Power</category>
+		<state pattern="%.2f W" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="activeharmpower_phase2">
+		<item-type>Number</item-type>
+		<label>Active Harmonic Power phase 2</label>
+		<description>Active Harmonic Power phase 2 in Watt</description>
+		<category>Power</category>
+		<state pattern="%.2f W" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="activeharmpower_phase1">
+		<item-type>Number</item-type>
+		<label>Active Harmonic Power phase 3</label>
+		<description>Active Harmonic Power phase 3 in Watt</description>
+		<category>Power</category>
+		<state pattern="%.2f W" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="activeharmpower_sum">
+		<item-type>Number</item-type>
+		<label>Active Harmonic Power all phase</label>
+		<description>Active Harmonic Power all phases in Watt</description>
+		<category>Power</category>
+		<state pattern="%.2f W" readOnly="true"></state>
+	</channel-type>
+	
+	<channel-type id="reactivepower_phase1">
+		<item-type>Number</item-type>
+		<label>Reactive power consumed at phase 1</label>
+		<description>Reactive power consumed at phase 1 in VAr</description>
+		<category>Power</category>
+		<state pattern="%.2f VAr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="reactivepower_phase2">
+		<item-type>Number</item-type>
+		<label>Reactive power consumed at phase 2</label>
+		<description>Reactive power consumed at phase 2 in VAr</description>
+		<category>Power</category>
+		<state pattern="%.2f VAr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="reactivepower_phase1">
+		<item-type>Number</item-type>
+		<label>Reactive power consumed at phase 3</label>
+		<description>Reactive power consumed at phase 3 in VAr</description>
+		<category>Power</category>
+		<state pattern="%.2f VAr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="reactivepower_sum">
+		<item-type>Number</item-type>
+		<label>sum of Reactive power consumed</label>
+		<description>sum of Reactive power consumed in VAr</description>
+		<category>Power</category>
+		<state pattern="%.2f VAr" readOnly="true"></state>
+	</channel-type>
+
+	<channel-type id="apppower_phase1">
+		<item-type>Number</item-type>
+		<label>Apparent power consumed at phase 1</label>
+		<description>Apparent power consumed at phase 1 in VA</description>
+		<category>Power</category>
+		<state pattern="%.2f VA" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="apppower_phase1">
+		<item-type>Number</item-type>
+		<label>Apparent power consumed at phase 2</label>
+		<description>Apparent power consumed at phase 2 in VA</description>
+		<category>Power</category>
+		<state pattern="%.2f VA" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="apppower_phase3">
+		<item-type>Number</item-type>
+		<label>Apparent power consumed at phase 3</label>
+		<description>Apparent power consumed at phase 3 in VA</description>
+		<category>Power</category>
+		<state pattern="%.2f VA" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="apppower_sum">
+		<item-type>Number</item-type>
+		<label>sum of Apparent power consumed</label>
+		<description>sum of Apparent power consumed in VA</description>
+		<category>Power</category>
+		<state pattern="%.2f VA" readOnly="true"></state>
+	</channel-type>
+	
+	
+	<!-- Forward Energy -->
+	<channel-type id="fwd_active_energy_phase1">
+		<item-type>Number</item-type>
+		<label>Forward Active Energy at Phase 1</label>
+		<description>Forward Active Energy at Phase 1 in Whr</description>
+		<category>Energy</category>
+		<state pattern="%.2f Whr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="fwd_active_energy_phase2">
+		<item-type>Number</item-type>
+		<label>Forward Active Energy at Phase 2</label>
+		<description>Forward Active Energy at Phase 2 in Whr</description>
+		<category>E</category>
+		<state pattern="%.2f Whr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="fwd_active_energy_phase3">
+		<item-type>Number</item-type>
+		<label>Forward Active Energy at Phase 3</label>
+		<description>Forward Active Energy at Phase 3 in Whr</description>
+		<category>Energy</category>
+		<state pattern="%.2f Whr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="fwd_active_energy_sum">
+		<item-type>Number</item-type>
+		<label>sum of Forward Active Energy</label>
+		<description>sum of Forward Active Energy in Whr</description>
+		<category>Energy</category>
+		<state pattern="%.2f Whr" readOnly="true"></state>
+	</channel-type>
+	
+	<channel-type id="fwd_active_fund_energy_phase1">
+		<item-type>Number</item-type>
+		<label>Forward Active Fundamental Energy at Phase 1</label>
+		<description>Forward Active Fundamental Energy at Phase 1 in Whr</description>
+		<category>Energy</category>
+		<state pattern="%.2f Whr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="fwd_active_fund_energy_phase2">
+		<item-type>Number</item-type>
+		<label>Forward Active Fundamental Energy at Phase 2</label>
+		<description>Forward Active Fundamental Energy at Phase 2 in Whr</description>
+		<category>E</category>
+		<state pattern="%.2f Whr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="fwd_active_fund_energy_phase3">
+		<item-type>Number</item-type>
+		<label>Forward Active Fundamental Energy at Phase 3</label>
+		<description>Forward Active Fundamental Energy at Phase 3 in Whr</description>
+		<category>Energy</category>
+		<state pattern="%.2f Whr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="fwd_active_fund_energy_sum">
+		<item-type>Number</item-type>
+		<label>sum of Forward Active Fundamental Energy</label>
+		<description>sum of Forward Active Fundamental Energy in Whr</description>
+		<category>Energy</category>
+		<state pattern="%.2f Whr" readOnly="true"></state>
+	</channel-type>
+	
+	<channel-type id="fwd_active_harm_energy_phase1">
+		<item-type>Number</item-type>
+		<label>Forward Active Harmonic Energy at Phase 1</label>
+		<description>Forward Active Harmonic Energy at Phase 1 in Whr</description>
+		<category>Energy</category>
+		<state pattern="%.2f Whr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="fwd_active_harm_energy_phase2">
+		<item-type>Number</item-type>
+		<label>Forward Active Harmonic Energy at Phase 2</label>
+		<description>Forward Active Harmonic Energy at Phase 2 in Whr</description>
+		<category>E</category>
+		<state pattern="%.2f Whr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="fwd_active_harm_energy_phase3">
+		<item-type>Number</item-type>
+		<label>Forward Active Harmonic Energy at Phase 3</label>
+		<description>Forward Active Harmonic Energy at Phase 3 in Whr</description>
+		<category>Energy</category>
+		<state pattern="%.2f Whr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="fwd_active_harm_energy_sum">
+		<item-type>Number</item-type>
+		<label>sum of Forward Active Harmonic Energy</label>
+		<description>sum of Forward Active Harmonic Energy in Whr</description>
+		<category>Energy</category>
+		<state pattern="%.2f Whr" readOnly="true"></state>
+	</channel-type>
+	
+	<channel-type id="fwd_reactive_energy_phase1">
+		<item-type>Number</item-type>
+		<label>Forward Reactive Energy at Phase 1</label>
+		<description>Forward Reactive Energy at Phase 1 in VAhr</description>
+		<category>Energy</category>
+		<state pattern="%.2f VAhr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="fwd_reactive_energy_phase2">
+		<item-type>Number</item-type>
+		<label>Forward Reactive Energy at Phase 2</label>
+		<description>Forward Reactive Energy at Phase 2 in VAhr</description>
+		<category>E</category>
+		<state pattern="%.2f VAhr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="fwd_reactive_energy_phase3">
+		<item-type>Number</item-type>
+		<label>Forward Reactive Energy at Phase 3</label>
+		<description>Forward Reactive Energy at Phase 3 in VAhr</description>
+		<category>Energy</category>
+		<state pattern="%.2f VAhr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="fwd_reactive_energy_sum">
+		<item-type>Number</item-type>
+		<label>sum of Forward Reactive Energy</label>
+		<description>sum of Forward Reactive Energy in VAhr</description>
+		<category>Energy</category>
+		<state pattern="%.2f VAhr" readOnly="true"></state>
+	</channel-type>
+	
+	
+	<!-- Reverse Energy -->
+	<channel-type id="rev_active_energy_phase1">
+		<item-type>Number</item-type>
+		<label>Reverse Active Energy at Phase 1</label>
+		<description>Reverse Active Energy at Phase 1 in Whr</description>
+		<category>Energy</category>
+		<state pattern="%.2f Whr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="rev_active_energy_phase2">
+		<item-type>Number</item-type>
+		<label>Reverse Active Energy at Phase 2</label>
+		<description>Reverse Active Energy at Phase 2 in Whr</description>
+		<category>E</category>
+		<state pattern="%.2f Whr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="rev_active_energy_phase3">
+		<item-type>Number</item-type>
+		<label>Reverse Active Energy at Phase 3</label>
+		<description>Reverse Active Energy at Phase 3 in Whr</description>
+		<category>Energy</category>
+		<state pattern="%.2f Whr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="rev_active_energy_sum">
+		<item-type>Number</item-type>
+		<label>sum of Reverse Active Energy</label>
+		<description>sum of Reverse Active Energy in Whr</description>
+		<category>Energy</category>
+		<state pattern="%.2f Whr" readOnly="true"></state>
+	</channel-type>
+	
+	<channel-type id="rev_active_fund_energy_phase1">
+		<item-type>Number</item-type>
+		<label>Reverse Active Fundamental Energy at Phase 1</label>
+		<description>Reverse Active Fundamental Energy at Phase 1 in Whr</description>
+		<category>Energy</category>
+		<state pattern="%.2f Whr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="rev_active_fund_energy_phase2">
+		<item-type>Number</item-type>
+		<label>Reverse Active Fundamental Energy at Phase 2</label>
+		<description>Reverse Active Fundamental Energy at Phase 2 in Whr</description>
+		<category>E</category>
+		<state pattern="%.2f Whr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="rev_active_fund_energy_phase3">
+		<item-type>Number</item-type>
+		<label>Reverse Active Fundamental Energy at Phase 3</label>
+		<description>Reverse Active Fundamental Energy at Phase 3 in Whr</description>
+		<category>Energy</category>
+		<state pattern="%.2f Whr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="rev_active_fund_energy_sum">
+		<item-type>Number</item-type>
+		<label>sum of Reverse Active Fundamental Energy</label>
+		<description>sum of Reverse Active Fundamental Energy in Whr</description>
+		<category>Energy</category>
+		<state pattern="%.2f Whr" readOnly="true"></state>
+	</channel-type>
+	
+	<channel-type id="rev_active_harm_energy_phase1">
+		<item-type>Number</item-type>
+		<label>Reverse Active Harmonic Energy at Phase 1</label>
+		<description>Reverse Active Harmonic Energy at Phase 1 in Whr</description>
+		<category>Energy</category>
+		<state pattern="%.2f Whr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="rev_active_harm_energy_phase2">
+		<item-type>Number</item-type>
+		<label>Reverse Active Harmonic Energy at Phase 2</label>
+		<description>Reverse Active Harmonic Energy at Phase 2 in Whr</description>
+		<category>E</category>
+		<state pattern="%.2f Whr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="rev_active_harm_energy_phase3">
+		<item-type>Number</item-type>
+		<label>Reverse Active Harmonic Energy at Phase 3</label>
+		<description>Reverse Active Harmonic Energy at Phase 3 in Whr</description>
+		<category>Energy</category>
+		<state pattern="%.2f Whr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="rev_active_harm_energy_sum">
+		<item-type>Number</item-type>
+		<label>sum of Reverse Active Harmonic Energy</label>
+		<description>sum of Reverse Active Harmonic Energy in Whr</description>
+		<category>Energy</category>
+		<state pattern="%.2f Whr" readOnly="true"></state>
+	</channel-type>
+	
+	<channel-type id="rev_reactive_energy_phase1">
+		<item-type>Number</item-type>
+		<label>Reverse Reactive Energy at Phase 1</label>
+		<description>Reverse Reactive Energy at Phase 1 in VAhr</description>
+		<category>Energy</category>
+		<state pattern="%.2f VAhr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="rev_reactive_energy_phase2">
+		<item-type>Number</item-type>
+		<label>Reverse Reactive Energy at Phase 2</label>
+		<description>Reverse Reactive Energy at Phase 2 in VAhr</description>
+		<category>E</category>
+		<state pattern="%.2f VAhr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="rev_reactive_energy_phase3">
+		<item-type>Number</item-type>
+		<label>Reverse Reactive Energy at Phase 3</label>
+		<description>Reverse Reactive Energy at Phase 3 in VAhr</description>
+		<category>Energy</category>
+		<state pattern="%.2f VAhr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="rev_reactive_energy_sum">
+		<item-type>Number</item-type>
+		<label>sum of Reverse Reactive Energy</label>
+		<description>sum of Reverse Reactive Energy in VAhr</description>
+		<category>Energy</category>
+		<state pattern="%.2f VAhr" readOnly="true"></state>
+	</channel-type>
+	
+	
+	<!-- Apparent Energy -->
+	<channel-type id="appenergy_consumption_phase1">
+		<item-type>Number</item-type>
+		<label>Apparent Energy Consumption at Phase 1</label>
+		<description>Apparent Energy Consumption at Phase 1 in VAhr</description>
+		<category>Energy</category>
+		<state pattern="%.2f VAhr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="appenergy_consumption_phase2">
+		<item-type>Number</item-type>
+		<label>Apparent Energy Consumption at Phase 2</label>
+		<description>Apparent Energy Consumption at Phase 2 in VAhr</description>
+		<category>E</category>
+		<state pattern="%.2f VAhr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="appenergy_consumption_phase3">
+		<item-type>Number</item-type>
+		<label>Apparent Energy Consumption at Phase 3</label>
+		<description>Apparent Energy Consumption at Phase 3 in VAhr</description>
+		<category>Energy</category>
+		<state pattern="%.2f VAhr" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="appenergy_consumption_sum">
+		<item-type>Number</item-type>
+		<label>sum of Apparent Energy Consumption</label>
+		<description>sum of Apparent Energy Consumption in VAhr</description>
+		<category>Energy</category>
+		<state pattern="%.2f VAhr" readOnly="true"></state>
+	</channel-type>
+</thing:thing-descriptions>
